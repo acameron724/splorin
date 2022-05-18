@@ -82,12 +82,12 @@ const RegistrationForm = () => {
   };
 
   if (shouldRedirect) {
-    location.href = "/";
+    location.href = "/home";
   }
 
   return (
     <div className="grid-container">
-      <h1>Register</h1>
+      <h2>Register as a New Explorer</h2>
       <form onSubmit={onSubmit}>
         <div>
           <label>
