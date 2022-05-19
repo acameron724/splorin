@@ -1,7 +1,6 @@
 import React from "react"
 
 const HikeSearchForm = () => {
-  console.log("working!")
 
   return (
     <div>

@@ -10,6 +10,7 @@ import TopBar from "./layout/TopBar";
 import Home from "./Home";
 import HikeSearchForm from "./HikeSearchForm";
 import CreateHikeForm from "./CreateHikeForm";
+import HikeShow from "./HikesShow";
 
 const App = (props) => {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -38,6 +39,7 @@ const App = (props) => {
         <Route exact path="/user-sessions/new" component={SignInForm} />
         <Route exact path="/find-a-hike" component={HikeSearchForm} />
         <Route exact path="/add-a-hike" component={CreateHikeForm} />
+        <Route exact path="/my-hikes" component={HikeShow} />
       </Switch>
     </Router>
   );

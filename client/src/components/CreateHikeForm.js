@@ -1,7 +1,6 @@
 import React from "react"
 
 const CreateHikeForm = () => {
-  console.log("she's working folks!")
 
   return (
     <div>

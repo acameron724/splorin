@@ -16,14 +16,13 @@ const TopBar = ({ user }) => {
 
   const authenticatedListItems = [
     <li key="add-a-hike">
-      <Link to="/add-a-hike">
-      Add a Hike
-      </Link>
+      <Link to="/add-a-hike">Add a Hike</Link>
     </li>,
     <li key="find-a-hike">
-      <Link to="/find-a-hike">
-      Find a Hike
-      </Link>
+      <Link to="/find-a-hike">Find a Hike</Link>
+    </li>,
+    <li key="my-hikes">
+      <Link to="/my-hikes">My Hikes</Link>
     </li>,
     <li key="sign-out">
       <SignOutButton />
