@@ -7,6 +7,10 @@ import "../assets/scss/main.scss";
 import RegistrationForm from "./registration/RegistrationForm";
 import SignInForm from "./authentication/SignInForm";
 import TopBar from "./layout/TopBar";
+import Home from "./Home";
+import HikeSearchForm from "./HikeSearchForm";
+import CreateHikeForm from "./CreateHikeForm";
+import HikeShow from "./HikesShow";
 
 const App = (props) => {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -28,10 +32,14 @@ const App = (props) => {
       <TopBar user={currentUser} />
       <Switch>
         <Route exact path="/">
-          <h2>Hello from react</h2>
+          <h2>Let's go Splorin!</h2>
         </Route>
+        <Route exact path="/home" component={Home} />
         <Route exact path="/users/new" component={RegistrationForm} />
         <Route exact path="/user-sessions/new" component={SignInForm} />
+        <Route exact path="/find-a-hike" component={HikeSearchForm} />
+        <Route exact path="/add-a-hike" component={CreateHikeForm} />
+        <Route exact path="/my-hikes" component={HikeShow} />
       </Switch>
     </Router>
   );
