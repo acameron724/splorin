@@ -13,6 +13,7 @@ class HikeSeeder {
         length: 8.2,
         elevationChange: 2506,
         status: true,
+        userId: 1,
       },
       {
         name: "Mount Garfield Trail",
@@ -24,6 +25,7 @@ class HikeSeeder {
         length: 9.6,
         elevationChange: 2988,
         status: true,
+        userId: 1,
       },
       {
         name: "Mount Whiteface and Passaconway Loop",
@@ -34,6 +36,18 @@ class HikeSeeder {
           "Both Mount Whiteface and Mount Passaconway are 4000 footers in New Hampshire. This loop is difficult in that it is long and the elevation gain is over 4000 feet. The views are fantastic and the trail is very well maintained throughout.",
         length: 11.3,
         elevationChange: 4038,
+        status: false,
+        userId: 1,
+      },
+      {
+        name: "Mount Washington via Tuckerman Ravine and Lion Head Trail",
+        location: "Gorham, New Hampshire",
+        difficulty: 5,
+        routeType: "Out-and-Back",
+        description:
+          "Mount Washington is one of the 4000 footers in New Hampshire. Mount Washington is the highest point in New England and the highest peak in the White Mountains of New Hampshire. This hike is recommended for experienced hikers who can handle significant elevation gain.",
+        length: 7.4,
+        elevationChange: 4242,
         status: false,
       },
     ];

@@ -10,6 +10,7 @@ class HikeSerializer {
       "length",
       "elevationChange",
       "status",
+      "userId",
     ];
     let serializedHike = {};
     for (const attribute of allowedAttributes) {
@@ -29,6 +30,7 @@ class HikeSerializer {
       "length",
       "elevationChange",
       "status",
+      "userId",
     ];
     let serializedHike = {};
     for (const attribute of allowedAttributes) {

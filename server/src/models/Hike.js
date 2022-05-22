@@ -18,6 +18,22 @@ class Hike extends Model {
         length: { type: ["string", "number"] },
         elevationChange: { type: ["string", "integer"] },
         status: { type: "boolean" },
+        userId: { type: ["string", "integer"] },
+      },
+    };
+  }
+
+  static get relationMappings() {
+    const { User } = require("./index.js");
+
+    return {
+      user: {
+        relation: Model.BelongsToOneRelation,
+        modelClass: User,
+        join: {
+          from: "hikes.userId",
+          to: "user.id",
+        },
       },
     };
   }
