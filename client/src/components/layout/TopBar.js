@@ -14,18 +14,24 @@ const TopBar = ({ user }) => {
     </li>,
   ];
 
-  const authenticatedListItems = [
+  const rightAuthenticatedListItems = [
+    <li key="sign-out">
+      <SignOutButton />
+    </li>,
+  ];
+
+  const leftAuthenticatedListItems = [
+    <li key="home">
+      <Link to="/home">Home</Link>
+    </li>,
+    <li key="my-hikes">
+      <Link to="/my-hikes">My Hikes</Link>
+    </li>,
     <li key="add-a-hike">
       <Link to="/add-a-hike">Add a Hike</Link>
     </li>,
     <li key="find-a-hike">
       <Link to="/find-a-hike">Find a Hike</Link>
-    </li>,
-    <li key="my-hikes">
-      <Link to="/my-hikes">My Hikes</Link>
-    </li>,
-    <li key="sign-out">
-      <SignOutButton />
     </li>,
   ];
 
@@ -33,14 +39,12 @@ const TopBar = ({ user }) => {
     <div className="top-bar">
       <div className="top-bar-left">
         <ul className="menu">
-          <li className="menu-text">Splorin'</li>
-          <li>
-            <Link to="/home">Home</Link>
-          </li>
+          <h3 className="menu-text">Splorin'</h3>
+          {user ? leftAuthenticatedListItems : null}
         </ul>
       </div>
       <div className="top-bar-right">
-        <ul className="menu">{user ? authenticatedListItems : unauthenticatedListItems}</ul>
+        <ul className="menu">{user ? rightAuthenticatedListItems : unauthenticatedListItems}</ul>
       </div>
     </div>
   );

@@ -3,6 +3,7 @@ import clientRouter from "./clientRouter.js";
 import userSessionsRouter from "./api/v1/userSessionsRouter.js";
 import usersRouter from "./api/v1/usersRouter.js";
 import hikesRouter from "./api/v1/hikesRouter.js";
+import myHikesRouter from "./api/v1/myHikesRouter.js";
 
 const rootRouter = new express.Router();
 
@@ -14,5 +15,6 @@ rootRouter.use("/add-a-hike", clientRouter);
 rootRouter.use("/api/v1/user-sessions", userSessionsRouter);
 rootRouter.use("/api/v1/users", usersRouter);
 rootRouter.use("/api/v1/hikes", hikesRouter);
+rootRouter.use("/api/v1/my-hikes", myHikesRouter);
 
 export default rootRouter;

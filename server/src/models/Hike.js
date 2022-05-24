@@ -17,26 +17,27 @@ class Hike extends Model {
         description: { type: "string" },
         length: { type: ["string", "number"] },
         elevationChange: { type: ["string", "integer"] },
-        status: { type: "boolean" },
-        userId: { type: ["string", "integer"] },
+        completed: { type: "string" },
+        wishList: { type: "string" },
+        image: { type: "string" },
       },
     };
   }
 
-  static get relationMappings() {
-    const { User } = require("./index.js");
+  // static get relationMappings() {
+  //   const { User } = require("./index.js");
 
-    return {
-      user: {
-        relation: Model.BelongsToOneRelation,
-        modelClass: User,
-        join: {
-          from: "hikes.userId",
-          to: "user.id",
-        },
-      },
-    };
-  }
+  //   return {
+  //     user: {
+  //       relation: Model.BelongsToOneRelation,
+  //       modelClass: User,
+  //       join: {
+  //         from: "hikes.userId",
+  //         to: "user.id",
+  //       },
+  //     },
+  //   };
+  // }
 }
 
 module.exports = Hike;

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import HikeTile from "./HikeTile.js";
+// import AddHikeForm from "./AddHikeForm";
 
 const HikesList = (props) => {
   const [hikes, setHikes] = useState([]);
@@ -19,31 +19,21 @@ const HikesList = (props) => {
     }
   };
 
+  const addNewHike = (hike) => {
+    setHikes([...hikes, hike]);
+  };
+
   useEffect(() => {
-    getHikes()
-  }, [])
+    getHikes();
+  }, []);
 
-  const completedHikeTileComponents = hikes.map((hikeObject) => {
-    if (hikeObject.status) {
-      return <HikeTile key={hikeObject.id} {...hikeObject} />
-    }
-  })
-
-  const incompleteHikeTileComponents = hikes.map((hikeObject) => {
-    if (!hikeObject.status) {
-      return <HikeTile key={hikeObject.id} {...hikeObject} />
-    }
-  })
+  // const hikeForm = (
+  //   <AddHikeForm addNewHike={addNewHike} />
+  // )
 
   return (
     <div>
-      <h1>Check out my hikes!!</h1>
-      <br />
-      <h2>Not Hiked</h2>
-      <h4>{incompleteHikeTileComponents}</h4>
-      <br />
-      <h2>Hiked</h2>
-      <h4>{completedHikeTileComponents}</h4>
+      <h1>This will be the list of all hikes in the DB</h1>
     </div>
   );
 };

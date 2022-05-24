@@ -35,19 +35,19 @@ class User extends uniqueFunc(Model) {
     };
   }
 
-  static get relationMappings() {
-    const { Hike } = require("./index.js");
-    return {
-      hikes: {
-        relation: Model.HasManyRelation,
-        modelClass: Hike,
-        join: {
-          from: "users.id",
-          to: "hikes.userId",
-        },
-      },
-    };
-  }
+  // static get relationMappings() {
+  //   const { Hike } = require("./index.js");
+  //   return {
+  //     hikes: {
+  //       relation: Model.HasManyRelation,
+  //       modelClass: Hike,
+  //       join: {
+  //         from: "users.id",
+  //         to: "hikes.userId",
+  //       },
+  //     },
+  //   };
+  // }
 
   $formatJson(json) {
     const serializedJson = super.$formatJson(json);

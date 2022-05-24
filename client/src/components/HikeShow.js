@@ -13,6 +13,7 @@ const HikeShow = (props) => {
     length: null,
     elevationChange: null,
     status: false,
+    image: {}
   });
 
   const getHike = async () => {

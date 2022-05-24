@@ -9,9 +9,10 @@ import SignInForm from "./authentication/SignInForm";
 import TopBar from "./layout/TopBar";
 import Home from "./Home";
 import HikeSearchForm from "./HikeSearchForm";
-import CreateHikeForm from "./CreateHikeForm";
-import HikesList from "./HikesList";
+import AddHikeForm from "./AddHikeForm";
 import HikeShow from "./HikeShow";
+import MyHikesList from "./MyHikesList";
+import HikesList from "./HikesList";
 
 const App = (props) => {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -33,15 +34,18 @@ const App = (props) => {
       <TopBar user={currentUser} />
       <Switch>
         <Route exact path="/">
-          <h2>Let's go Splorin!</h2>
+          <h2 className="home-page-body">Let's go Splorin!</h2>
         </Route>
         <Route exact path="/home" component={Home} />
         <Route exact path="/users/new" component={RegistrationForm} />
         <Route exact path="/user-sessions/new" component={SignInForm} />
         <Route exact path="/find-a-hike" component={HikeSearchForm} />
-        <Route exact path="/add-a-hike" component={CreateHikeForm} />
-        <Route exact path="/my-hikes" component={HikesList} />
-        <Route exact path="/my-hikes/:id" component={HikeShow} />
+        <Route exact path="/add-a-hike">
+          <AddHikeForm user={currentUser} />
+        </Route>
+        <Route exact path="/hikes" component={HikesList} />
+        <Route exact path="/hikes/:id" component={HikeShow} />
+        <Route exact path="/my-hikes" component={MyHikesList} />
       </Switch>
     </Router>
   );
