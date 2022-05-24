@@ -31,7 +31,7 @@ const TopBar = ({ user }) => {
       <Link to="/add-a-hike">Add a Hike</Link>
     </li>,
     <li key="find-a-hike">
-      <Link to="/find-a-hike">Find a Hike</Link>
+      <Link to="/hikes">Find a Hike</Link>
     </li>,
   ];
 

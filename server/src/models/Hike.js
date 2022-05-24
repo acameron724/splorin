@@ -17,12 +17,11 @@ class Hike extends Model {
         description: { type: "string" },
         length: { type: ["string", "number"] },
         elevationChange: { type: ["string", "integer"] },
-        completed: { type: "string" },
-        wishList: { type: "string" },
         image: { type: "string" },
       },
     };
   }
+  
 
   // static get relationMappings() {
   //   const { User } = require("./index.js");

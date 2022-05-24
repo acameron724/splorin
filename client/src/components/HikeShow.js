@@ -1,18 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-// import error list
 
 const HikeShow = (props) => {
   const { id } = useParams();
   const [hike, setHike] = useState({
     name: "",
     location: "",
-    difficulty: null,
+    difficulty: "",
     routeType: "",
     description: "",
-    length: null,
-    elevationChange: null,
-    status: false,
+    length: "",
+    elevationChange: "",
     image: {}
   });
 
@@ -35,17 +33,13 @@ const HikeShow = (props) => {
     getHike();
   }, []);
 
-  const completionStatus = hike.status ? (
-    "Yes"
-  ) : "No"
-
   return (
     <div>
       {hike.name}
       <br />
       {hike.description}
       <br />
-      Hike Completed? {completionStatus}
+      <img src={hike.image} />
     </div>
   );
 };

@@ -1,26 +1,29 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import translateServerErrors from "./../services/translateServerErrors.js";
 import ErrorList from "./layout/ErrorList";
 import Dropzone from "react-dropzone";
+import { Redirect } from "react-router-dom";
 
 const AddHikeForm = (props) => {
+  const currentUser = props.user;
   const [newHike, setNewHike] = useState({
     name: "",
     location: "",
-    difficulty: null,
+    difficulty: "",
     routeType: "",
     description: "",
-    length: null,
-    elevationChange: null,
-    completed: [],
-    wishList: [],
+    length: "",
+    elevationChange: "",
+    completed: false,
+    wishList: false,
     image: {},
   });
   const [errors, setErrors] = useState({});
   const [uploadedImage, setUploadedImage] = useState({
     preview: "",
   });
-  
+  const [redirect, setRedirect] = useState(false);
+
   const postHike = async () => {
     let preFetchErrors = {};
     if (!newHike.name) {
@@ -35,10 +38,9 @@ const AddHikeForm = (props) => {
     if (!newHike.routeType) {
       preFetchErrors.RouteType = `Please select a route type for this hike`;
     }
-    
+
     if (Object.keys(preFetchErrors).length) return setErrors(preFetchErrors);
     else setErrors({});
-
     try {
       const body = new FormData();
       body.append("name", newHike.name);
@@ -65,13 +67,19 @@ const AddHikeForm = (props) => {
         throw new Error(`${response.status} )${response.statusText}`);
       } else {
         const body = await response.json();
-        props.addNewHike(body.hike);
-        clearForm();
+        if (body.hike) {
+          setRedirect(true);
+          clearForm();
+        }
       }
     } catch (error) {
       console.error(error.message);
     }
   };
+
+  if (redirect) {
+    return <Redirect push to="/hikes" />;
+  }
 
   const handleInputChange = (event) => {
     event.preventDefault();
@@ -95,15 +103,28 @@ const AddHikeForm = (props) => {
   };
 
   const handleCompletedChange = (event) => {
-    event.preventDefault()
-  //   newHike.status ? (
-  //     setNewHike({ ...newHike, completed : false })
-  //   ) : setNewHike({ ...newHike, completed : true })
-  }
-  // use props.user
-  // if currentUserId exists in newHike.completed array, then remove it
-  // else if it doesn't exist, then add it (props.user)
-  console.log(props.user)
+    event.preventDefault();
+    if (newHike.completed.includes(currentUser.id)) {
+      const index = newHike.completed.indexOf(currentUser.id);
+      newHike.completed.splice(index, 1);
+      setNewHike({ ...newHike });
+    } else {
+      newHike.completed.push(currentUser.id);
+      setNewHike({ ...newHike });
+    }
+  };
+
+  const handleWishListChange = (event) => {
+    event.preventDefault();
+    if (newHike.wishList.includes(currentUser.id)) {
+      const index = newHike.wishList.indexOf(currentUser.id);
+      newHike.wishList.splice(index, 1);
+      setNewHike({ ...newHike });
+    } else {
+      newHike.wishList.push(currentUser.id);
+      setNewHike({ ...newHike });
+    }
+  };
 
   const clearForm = () => {
     setNewHike({
@@ -140,7 +161,7 @@ const AddHikeForm = (props) => {
           onChange={handleInputChange}
           value={newHike.location}
         />
-        <div >
+        <div>
           <label htmlFor="difficulty">Hike Difficulty (1-5)</label>
           <input
             type="range"
@@ -180,7 +201,7 @@ const AddHikeForm = (props) => {
         <input
           type="text"
           name="elevationChange"
-          placeholder="Total change in elevation"
+          placeholder="Total change in elevation (in feet)"
           onChange={handleInputChange}
           value={newHike.elevationChange}
         />
@@ -200,6 +221,16 @@ const AddHikeForm = (props) => {
           />
           <label htmlFor="status">I have already completed this hike!</label>
         </div>
+        <div>
+          <input
+            type="checkbox"
+            name="wishList"
+            id="wishList"
+            value={newHike.wishList}
+            onChange={handleWishListChange}
+          />
+          <label htmlFor="status">Add this hike to my Wish List!</label>
+        </div>
         <Dropzone onDrop={handleImageUpload}>
           {({ getRootProps, getInputProps }) => (
             <section>
@@ -210,7 +241,7 @@ const AddHikeForm = (props) => {
                     className="button"
                     type="add"
                     onChange={handleInputChange}
-                    value="Add an image!"
+                    value="Add an image"
                   />
                 </div>
                 <div className="drag-n-drop">

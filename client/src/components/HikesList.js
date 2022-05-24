@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import AddHikeForm from "./AddHikeForm";
+import HikeTile from "./HikeTile";
 
 const HikesList = (props) => {
   const [hikes, setHikes] = useState([]);
@@ -19,21 +19,21 @@ const HikesList = (props) => {
     }
   };
 
-  const addNewHike = (hike) => {
-    setHikes([...hikes, hike]);
-  };
-
   useEffect(() => {
     getHikes();
   }, []);
 
-  // const hikeForm = (
-  //   <AddHikeForm addNewHike={addNewHike} />
-  // )
+  const hikeTileComponents = hikes.map((hikeObject) => {
+    return <HikeTile key={`hikeTile-${hikeObject.id}`} {...hikeObject} />
+  })
 
   return (
     <div>
-      <h1>This will be the list of all hikes in the DB</h1>
+      <h1>Find your next hike!</h1>
+      <h3>Search for a hike:</h3>
+      <p> // insert hike search form here // </p>
+      <h3>Splorin Hike Database:</h3>
+      {hikeTileComponents}
     </div>
   );
 };
