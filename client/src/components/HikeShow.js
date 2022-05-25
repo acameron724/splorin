@@ -11,7 +11,7 @@ const HikeShow = (props) => {
     description: "",
     length: "",
     elevationChange: "",
-    image: {}
+    image: {},
   });
 
   const getHike = async () => {
@@ -33,13 +33,47 @@ const HikeShow = (props) => {
     getHike();
   }, []);
 
+  const handleCompletedChange = (event) => {
+    // if completed changes to 'true'
+    // then change completed value to 'true' for currentUser
+  }
+
+  const handleWishListChange = (event) => {
+    // if wishList changes to 'true'
+    // then change wishList value to 'true' for currentUser
+  }
+
   return (
     <div>
-      {hike.name}
-      <br />
-      {hike.description}
+      <h1>{hike.name}</h1>
+      <h3>{hike.location}</h3>
+      <p>{hike.description}</p>
+      <p>Hike Difficulty: {hike.difficulty}</p>
+      <p>Route Type: {hike.routeType}</p>
+      <p>Length: {hike.length}</p>
+      <p>Elevation Change: {hike.elevationChange}</p>
       <br />
       <img src={hike.image} />
+      <div>
+        <input
+          type="checkbox"
+          name="completed"
+          id="completed"
+          // value={hike.completed}
+          // onChange={handleCompletedChange}
+        />
+        <label htmlFor="status">I have already completed this hike!</label>
+      </div>
+      <div>
+        <input
+          type="checkbox"
+          name="wishList"
+          id="wishList"
+          // value={hike.wishList}
+          // onChange={handleWishListChange}
+        />
+        <label htmlFor="status">Add this hike to my Wish List!</label>
+      </div>
     </div>
   );
 };
