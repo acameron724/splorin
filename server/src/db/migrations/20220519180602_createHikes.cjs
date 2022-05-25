@@ -12,10 +12,10 @@ exports.up = async (knex) => {
     table.string("location").notNullable();
     table.integer("difficulty").notNullable();
     table.string("routeType").notNullable();
-    table.boolean("status").notNullable()
     table.text("description");
     table.decimal("length");
     table.integer("elevationChange");
+    table.string("image")
     table.timestamp("createdAt").notNullable().defaultTo(knex.fn.now());
     table.timestamp("updatedAt").notNullable().defaultTo(knex.fn.now());
   });

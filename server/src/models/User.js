@@ -29,11 +29,25 @@ class User extends uniqueFunc(Model) {
       required: ["email"],
 
       properties: {
-        email: { type: "string"},
+        email: { type: "string" },
         cryptedPassword: { type: "string" },
       },
     };
   }
+
+  // static get relationMappings() {
+  //   const { Hike } = require("./index.js");
+  //   return {
+  //     hikes: {
+  //       relation: Model.HasManyRelation,
+  //       modelClass: Hike,
+  //       join: {
+  //         from: "users.id",
+  //         to: "hikes.userId",
+  //       },
+  //     },
+  //   };
+  // }
 
   $formatJson(json) {
     const serializedJson = super.$formatJson(json);
