@@ -1,6 +1,6 @@
 import got from "got"
 
-const googleMapsApiKey = 'AIzaSyB4OM3zANrOyESbsF6nwt1jHWyM8DZtdY4'
+const googleMapsApiKey = 
 
 class GoogleMapsClient {
   static async getMap () {
