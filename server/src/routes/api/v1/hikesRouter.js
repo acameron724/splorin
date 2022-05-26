@@ -31,11 +31,13 @@ hikesRouter.get("/:id", async (req, res) => {
 });
 
 hikesRouter.post("/", uploadImage.single("image"), async (req, res) => {
-  const { name, location, difficulty, routeType, description, length, elevationChange } = cleanUserInput(req.body);
+  const { name, location, lat, lng, difficulty, routeType, description, length, elevationChange } = cleanUserInput(req.body);
   try {
     const newHike = await Hike.query().insertAndFetch({
       name,
       location,
+      lat,
+      lng,
       difficulty,
       routeType,
       description,

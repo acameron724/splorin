@@ -8,10 +8,12 @@ class Hike extends Model {
   static get jsonSchema() {
     return {
       type: "object",
-      required: ["name", "location", "difficulty", "routeType"],
+      required: ["name", "location", "lat", "lng", "difficulty", "routeType"],
       properties: {
         name: { type: "string", minLength: 1 },
         location: { type: "string", minLength: 1 },
+        lat: { type: "string" },
+        lng: { type: "string" },
         difficulty: { type: ["string", "integer"], minimum: 1, maximum: 5 },
         routeType: { type: "string" },
         description: { type: "string" },

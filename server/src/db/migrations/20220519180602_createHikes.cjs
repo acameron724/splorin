@@ -10,6 +10,8 @@ exports.up = async (knex) => {
     table.bigIncrements("id");
     table.string("name").notNullable();
     table.string("location").notNullable();
+    table.string("lat").notNullable()
+    table.string("lng").notNullable()
     table.integer("difficulty").notNullable();
     table.string("routeType").notNullable();
     table.text("description");

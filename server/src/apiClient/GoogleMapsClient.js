@@ -1,11 +1,9 @@
 import got from "got"
 
-const googleMapsApiKey = 
-
 class GoogleMapsClient {
-  static async getMap () {
+  static async getMap (lat, lng) {
     try {
-      const url = ""
+      const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${process.env.GOOGLE_MAPS_KEY}`
       const apiResponse = await got(url)
       const responseBody = apiResponse.body
       return responseBody
