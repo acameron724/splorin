@@ -3,12 +3,15 @@ import { Link } from "react-router-dom";
 
 const HikeTile = (props) => {
   return (
-      <li>
+    <ul className="holy-grail-middle hike-list">
+      <li className="hike-list">
         <Link to={`/hikes/${props.id}`}>
           {" "}
-          {props.name} || {props.location}{" "}
+          {props.name}
         </Link>
       </li>
+        
+    </ul>
   );
 };
 

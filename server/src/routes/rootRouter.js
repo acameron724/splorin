@@ -16,6 +16,6 @@ rootRouter.use("/api/v1/user-sessions", userSessionsRouter);
 rootRouter.use("/api/v1/users", usersRouter);
 rootRouter.use("/api/v1/hikes", hikesRouter);
 rootRouter.use("/api/v1/my-hikes", myHikesRouter);
-rootRouter.us("/api/v1/maps", mapsRouter);
+rootRouter.use("/api/v1/maps", mapsRouter);
 
 export default rootRouter;

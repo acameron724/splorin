@@ -28,11 +28,28 @@ const HikesList = (props) => {
   })
 
   return (
-    <div>
-      <h1>Find your next hike!</h1>
-      <h3>Search for a hike:</h3>
-      <p> // insert hike search form here // </p>
-      <h3>Splorin Hike Database:</h3>
+    <div className="hike-list">
+      <h1 className="text-center">Find Your Next Adventure</h1>
+      <br/>
+      <h3 className="text-center">Search for a Hike</h3>
+      <form className="holy-grail-form">
+          <input
+            type="text"
+            name="name"
+            placeholder="Search for a hike name"
+            // onChange={handleInputChange}
+            // value={newHike.name}
+          />
+          <input
+            type="text"
+            name="location"
+            placeholder="Search for a hike location"
+            // onChange={handleInputChange}
+            // value={newHike.location}
+          />
+        </form>
+      <br/>
+      <h3 className="text-center">Splorin Hike Database</h3>
       {hikeTileComponents}
     </div>
   );

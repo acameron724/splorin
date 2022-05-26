@@ -13,6 +13,7 @@ import AddHikeForm from "./AddHikeForm";
 import HikeShow from "./HikeShow";
 import MyHikesList from "./MyHikesList";
 import HikesList from "./HikesList";
+import MapTile from "./MapTile";
 
 const App = (props) => {
   const [currentUser, setCurrentUser] = useState(undefined);
