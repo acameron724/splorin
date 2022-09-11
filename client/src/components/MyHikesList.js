@@ -37,7 +37,7 @@ const MyHikesList = (props) => {
 
   return (
     <div>
-      <h1>Check out my hikes!!</h1>
+      <h1 className="text-center">My Hike Database</h1>
       <br />
       <h2>Not Hiked</h2>
       <p>{incompleteHikeTileComponents}</p>

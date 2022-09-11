@@ -31,7 +31,7 @@ const HikesList = (props) => {
     <div className="hike-list">
       <h1 className="text-center">Find Your Next Adventure</h1>
       <br/>
-      <h3 className="text-center">Search for a Hike</h3>
+      <h3 className="text-center">Search for a Hike (Coming Soon!)</h3>
       <form className="holy-grail-form">
           <input
             type="text"

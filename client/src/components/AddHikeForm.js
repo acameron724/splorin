@@ -154,7 +154,7 @@ const AddHikeForm = (props) => {
 
   return (
     <div>
-      <h2 className="form-header text-center">Add a Hike to the Splorin' Database</h2>
+      <h2 className="form-header text-center">Add a Hike to Your Splorin' Database</h2>
       <ErrorList errors={errors} />
       <div>
         <form className="holy-grail-form" onSubmit={handleSubmit}>
